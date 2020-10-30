@@ -10,7 +10,8 @@ app.User = Backbone.Model.extend({
             created_at: null,
             updated_at: null,
             last_seen_at: null,
-            online: false
+            online: false,
+            roomid: null
         }
     },
 

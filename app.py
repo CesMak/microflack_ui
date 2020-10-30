@@ -15,9 +15,8 @@ Bootstrap(app)
 @app.route('/')
 def index():
     """Serve client-side application."""
-    return render_template('index.html',
-                           use_socketio=not app.config['NO_SOCKETIO'])
-
+    print("Use socket io: "+str(not app.config['NO_SOCKETIO']))
+    return render_template('index.html', use_socketio=not app.config['NO_SOCKETIO'])
 
 if __name__ == '__main__':
     app.run()  # pragma: no cover

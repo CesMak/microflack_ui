@@ -48,7 +48,8 @@ app.LoginFormView = Backbone.View.extend({
             // Register a new account
             var user = new app.User({
                 nickname: args.nickname,
-                password: args.password
+                password: args.password,
+                roomid  : args.roomid
             });
             user.save({}, {
                 success: function() {
