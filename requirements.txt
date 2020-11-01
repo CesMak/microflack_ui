@@ -10,7 +10,7 @@ Flask-HTTPAuth==4.1.0
 itsdangerous==1.1.0
 Jinja2==2.11.2
 MarkupSafe==1.1.1
-MicroFlack-Common==0.1
+MicroFlack-Common==0.4
 PyJWT==1.7.1
 python-dotenv==0.15.0
 python-etcd==0.4.5
