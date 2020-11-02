@@ -13,7 +13,7 @@
 <script type="text/javascript">var USE_SOCKETIO = {% if use_socketio %}true{% else %}false{% endif %};</script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.3.3/backbone-min.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.6/socket.io.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.min.js"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='models/user.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='models/message.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='models/user_list.js') }}"></script>
@@ -72,7 +72,7 @@
     <form data-submit="loginFormView">
         <input type="nickname" class="form-control horizontal-control" size="8" id="nickname" placeholder="Nickname">
         <input type="password" class="form-control horizontal-control" size="8" id="password" placeholder="Password">
-        <input type="roomid" class="form-control horizontal-control" size="8" id="roomid" placeholder="Room">        
+        <input type="roomid" class="form-control horizontal-control" size="8" id="roomid" placeholder="Room">
         <button type="submit" class="btn btn-default horizontal-control">Register or Sign In</button>
         <div class="horizontal-control text-danger" id="login-error"></div>
     </form>
