@@ -17,6 +17,7 @@ $(function() {
     if (USE_SOCKETIO) {
         // Create the Socket.IO client that will update messages and users
         app.socket = io.connect(location.protocol + '//' + location.hostname + ':' + location.port);
+        console.log("used: "+location.protocol + '//' + location.hostname + ':' + location.port);
         app.socket.on('updated_model', function(data) {
             if (data['class'] == 'User') {
                 var user = new app.User();
