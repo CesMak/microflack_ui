@@ -4,20 +4,20 @@ var app = app || {};
 
 $(function() {
     // Create the models.
-    app.userList = new app.UserList();
+    app.userList    = new app.UserList();
     app.messageList = new app.MessageList();
-    app.token = new app.Token();
+    app.token       = new app.Token();
 
     // Create the views.
-    app.userListView = new app.UserListView({collection: app.userList});
+    app.userListView    = new app.UserListView({collection: app.userList});
     app.messageListView = new app.MessageListView({collection: app.messageList});
-    app.loginFormView = new app.LoginFormView({model: app.token});
-    app.postFormView = new app.PostFormView({model: app.token});
+    app.loginFormView   = new app.LoginFormView({model: app.token});
+    app.postFormView    = new app.PostFormView({model: app.token});
 
     if (USE_SOCKETIO) {
         // Create the Socket.IO client that will update messages and users
         app.socket = io.connect(location.protocol + '//' + location.hostname + ':' + location.port);
-        console.log("used: "+location.protocol + '//' + location.hostname + ':' + location.port);
+        console.log("using socket io and: "+location.protocol + '//' + location.hostname + ':' + location.port);
         app.socket.on('updated_model', function(data) {
             if (data['class'] == 'User') {
                 var user = new app.User();

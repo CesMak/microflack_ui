@@ -63,7 +63,9 @@
 
 <!-- templates -->
 <script type="text/template" id="user-template">
-    <%= user.nickname %>
+    <%= user.nickname%>
+    <%= user.last_seen_at%>
+    <%= user.roomid%>
 </script>
 <script type="text/template" id="message-template">
     <span class="user"></span> <%= msg.html %>
@@ -79,8 +81,10 @@
 </script>
 <script type="text/template" id="post-form-template">
     <form data-submit="postFormView">
-        <input type="text" class="form-control horizontal-control" style="width: calc(100% - 75px);" id="message" placeholder="Type your message">
+        <input type="text" class="form-control horizontal-control" style="width: calc(100% - 220px);" id="message" placeholder="Type your message">
         <button type="submit" class="btn btn-default horizontal-control">Submit</button>
+        <button onclick="location.href='/'" type="button" class="btn btn-default horizontal-control"> Logout</button>
     </form>
-</script>
+
+  </script>
 {% endblock %}
