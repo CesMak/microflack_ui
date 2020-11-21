@@ -49,7 +49,7 @@ app.LoginFormView = Backbone.View.extend({
             var user = new app.User({
                 nickname: args.nickname,
                 password: args.password,
-                roomid  : args.roomid
+                roomid: parseInt(args.roomid)
             });
             user.save({}, {
                 success: function() {
@@ -63,6 +63,7 @@ app.LoginFormView = Backbone.View.extend({
             // a token.
             this.requestToken(args.nickname, args.password);
         }
+        app.socket.emit('on_join_room', parseInt(args.roomid));
     },
 
     render: function() {
