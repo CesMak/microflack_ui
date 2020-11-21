@@ -26,9 +26,9 @@ app.PostFormView = Backbone.View.extend({
             // console.log(app.token);    // prints token
             // console.log(app.userList); // prints
             // console.log(this.model);  // prints token
-            console.log(app.userList);
-            console.log(app.userList.findWhere({nickname: 'markus'}));
-            console.log(app.userList.findWhere({nickname: 'markus'}).get('roomid'));
+            // console.log(app.userList);
+            // console.log(app.userList.findWhere({nickname: 'markus'}));
+            // console.log(app.userList.findWhere({nickname: 'markus'}).get('roomid'));
             app.socket.emit('post_message', {source: args.message}, app.token.get('token'));
         }
         else {
