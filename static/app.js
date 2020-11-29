@@ -7,6 +7,7 @@ $(function() {
     app.userList    = new app.UserList();
     app.messageList = new app.MessageList();
     app.token       = new app.Token();
+    //app.cuser       = new app.cUser();
 
     // Create the views.
     app.userListView    = new app.UserListView({collection: app.userList});
@@ -46,6 +47,17 @@ $(function() {
             var token = app.token.get('token');
             if (token) {
                 // ping the user every 30 seconds
+                // If the user registers, my_user is undefined .... :(
+                // --> in this case id is only guessed by length....
+                var cuser = JSON.parse(window.localStorage.getItem('cuser'));
+                console.log("cuser"+cuser+" "+cuser["nickname"]);
+                var my_user = app.userList.findWhere({nickname: cuser["nickname"]});
+                var user_id = cuser["id"];
+                if (typeof my_user !== 'undefined')
+                {
+                  user_id = my_user.id;
+                }
+                app.socket.emit('on_join_room', parseInt(cuser["roomid"]), parseInt(user_id), token);
                 app.socket.emit('ping_user', token);
                 app.tokenRefreshTimer = window.setInterval(function() {
                     app.socket.emit('ping_user', token);

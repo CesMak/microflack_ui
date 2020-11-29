@@ -63,7 +63,21 @@ app.LoginFormView = Backbone.View.extend({
             // a token.
             this.requestToken(args.nickname, args.password);
         }
-        app.socket.emit('on_join_room', parseInt(args.roomid));
+
+        // the id is approximated here..... 
+        const cuser = {
+            nickname: args.nickname,
+            roomid: args.roomid,
+            id: app.userList.length+1,
+        }
+        window.localStorage.setItem('cuser', JSON.stringify(cuser));
+        //
+        // var cuser = new app.cUser({nickname: args.nickname});
+        // cuser.save();
+        // Note cid is given by the client through backbone model, id comes from the server
+        // Model loads asynchronous
+        // token is stored inside the this.model
+        // console.log(user); works but nothing else here!(attributes etc.)
     },
 
     render: function() {

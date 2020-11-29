@@ -11,7 +11,7 @@ app.Message = Backbone.Model.extend({
             created_at: null,
             updated_at: null,
             user_id: null,
-            room_id: null
+            roomid: null
         }
     },
 

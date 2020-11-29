@@ -21,14 +21,6 @@ app.PostFormView = Backbone.View.extend({
         if (USE_SOCKETIO) {
             // Send the new message to the server as a Socket.IO event. The server
             // will in turn broadcast an update to all clients.
-            console.log("message:");
-            console.log(args.message);
-            // console.log(app.token);    // prints token
-            // console.log(app.userList); // prints
-            // console.log(this.model);  // prints token
-            // console.log(app.userList);
-            // console.log(app.userList.findWhere({nickname: 'markus'}));
-            // console.log(app.userList.findWhere({nickname: 'markus'}).get('roomid'));
             app.socket.emit('post_message', {source: args.message}, app.token.get('token'));
         }
         else {
